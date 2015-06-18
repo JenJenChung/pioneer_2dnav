@@ -7,7 +7,6 @@ project(pioneer_2dnav)
 find_package(catkin REQUIRED COMPONENTS
   gmapping
   move_base
-  rosaria
 )
 
 ## System dependencies are found with CMake's conventions
