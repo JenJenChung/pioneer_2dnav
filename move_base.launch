@@ -5,5 +5,7 @@
     <rosparam file="$(find pioneer_2dnav)/local_costmap_params.yaml" command="load" />
     <rosparam file="$(find pioneer_2dnav)/global_costmap_params.yaml" command="load" />
     <rosparam file="$(find pioneer_2dnav)/base_local_planner_params.yaml" command="load" />
+  	<!-- Use with estop -->
+<!--	  <remap from="cmd_vel" to="cmd_vel_estop"/>-->
   </node>
 </launch>
