@@ -1,11 +1,28 @@
 <launch>
+  <!-- START: Use with multi-pioneer simulation -->
+  <!-- Run AMCL (noisy localisation)-->
+<!--  <arg name="robot_name"/>-->
+<!--  <include file="$(find nav_bundle)/launch/amcl_pioneer.launch">-->
+<!--    <arg name="tf_name" value="$(arg robot_name)"/>-->
+<!--  </include>-->
+  <!-- Assert fixed transform between map and odom (perfect localisation) -->
+<!--  <arg name="robot_name"/>-->
+<!--  <node pkg="tf" type="static_transform_publisher" name="map_odom_broadcaster" args="0 0 0 0 0 0 1 /map $(arg robot_name)/odom 100" output="screen"/>-->
+  <!-- END: Use with multi-pioneer simulation -->
+
+
   <node pkg="move_base" type="move_base" respawn="false" name="move_base" output="screen">
     <rosparam file="$(find pioneer_2dnav)/costmap_common_params.yaml" command="load" ns="global_costmap" />
     <rosparam file="$(find pioneer_2dnav)/costmap_common_params.yaml" command="load" ns="local_costmap" />
     <rosparam file="$(find pioneer_2dnav)/local_costmap_params.yaml" command="load" />
     <rosparam file="$(find pioneer_2dnav)/global_costmap_params.yaml" command="load" />
     <rosparam file="$(find pioneer_2dnav)/base_local_planner_params.yaml" command="load" />
-  	<!-- Use with estop -->
+    <!-- START: Use with multi-pioneer simulation -->
+<!--    <remap from="map" to="/map" />-->
+    <!-- END: Use with multi-pioneer simulation -->
+    
+  	<!-- START: Use with estop -->
 <!--	  <remap from="cmd_vel" to="cmd_vel_estop"/>-->
+    <!-- END: Use with estop -->
   </node>
 </launch>
