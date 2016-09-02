@@ -5,7 +5,8 @@
     <rosparam file="$(find pioneer_2dnav)/local_costmap_params.yaml" command="load" />
     <rosparam file="$(find pioneer_2dnav)/global_costmap_params.yaml" command="load" />
     <rosparam file="$(find pioneer_2dnav)/base_local_planner_params.yaml" command="load" />
-    <!-- NOTE: Use move_base_global.launch for globally qualified map topic -->
+
+    <remap from="map" to="/map" />
     
   	<!-- START: Use with estop -->
 <!--	  <remap from="cmd_vel" to="cmd_vel_estop"/>-->
